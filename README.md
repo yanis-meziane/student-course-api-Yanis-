@@ -25,31 +25,44 @@ L’objectif est d’améliorer la qualité du code et la couverture de tests à
 - Règles métier : unicité email/titre, pagination, recherche, suppression protégée, etc.
 - API REST documentée avec Swagger.
 
-## À faire
-
-- Corriger et compléter les tests existants.
-- Ajouter de nouveaux tests pour améliorer la couverture.
-- Mettre en place ESLint et Prettier.
-- Intégrer la vérification de qualité et les tests dans la CI.
-- Finaliser la documentation Swagger.
-- Intégrer Codacy comme outil d’analyse statique
-- Ajouter un template de Pull Request (.github/pull_request_template.md).
-- Produire une Pull Request bien documentée avec des messages de commits pertinents.
-- Rédiger une documentation technique complète (Markdown ou générateur).
-- Fournir un dépôt Git propre, lisible et bien organisé.
-
 ## Démarrage rapide
+
+### Vérifications de versions 
+
+#### Node
+
+
+```sh
+    node --v 
+```
+
+Si non obtention de node : 
+
+```sh
+    npm install node
+```
+
+#### Lancement du projet
 
 ```sh
 npm install
 npm run dev
 ```
 
-- Accès à la documentation Swagger : `/api-docs`
+- Accès à la documentation Swagger : `http://localhost:3000/api-docs/`
 - Lancer les tests : `npm test`
 - Linter : `npm run lint`
 - Formatage : `npm run format`
 
+## Définitions
+
+- Le *Swagger* permet de centraliser les défintions de redirections/endpoints pour l'API
+
+- Les tests (Unitaire/fonctionnelles) permettent de vérifier la pertinence des fonctions.
+
+- Les *prettier* formatent les prérequis de ce qui est attendu du code (Exemple : Utilisation de Simple ou Double quote, les virgules ou les points virgules).
+
+- Les *linter* permet de faire une détections des erreurs de code et éviter les incohérences ou les oublis (Exemple : Variables non utilisés / imports non présents...)
 ---
 
-**À vous de jouer pour améliorer la qualité et la fiabilité du projet !**
+
