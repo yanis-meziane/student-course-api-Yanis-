@@ -5,7 +5,7 @@
     "version": "1.0.0",
     "description": "API pédagogique pour gérer étudiants et cours (no DB)"
   },
-  "tags": [{ "name": "Courses", "description": "Gestion des cours" }],
+  "tags": [{ "name": "Courses", "description": "Gestion des cours" },{ "name": "Students", "description": "Gestion des étudiants" }],
   "paths": {
     "/courses": {
       "get": {
@@ -71,16 +71,69 @@
         }
       }
     },
-
-  "tags": [{ "name": "Students", "description": "Gestion des étudiants" }],
-  "paths": {
-    "/students": {
+     "/students": {
+          "get": {
+            "tags": ["Students"],
+            "summary": "Liste des étudiants",
+            "responses": { "200": { "description": "OK" } }
+        },
+          "post":{
+            "tags":["Students"],
+            "summary": "Créer un étudiant",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": { "type": "string" },
+                  "email": { "type": "string" }
+                },
+                "required": ["name", "email"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": { "description": "Créé" },
+          "400": { "description": "Paramètres invalides" }
+        }
+      }
+    },"/Students/{id}": {
       "get": {
         "tags": ["Students"],
-        "summary": "Liste des étudiants",
-        "responses": { "200": { "description": "OK" } }
+        "summary": "Récupérer un étudiant en particulier",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "integer" }
+          }
+        ],
+        "responses": {
+          "200": { "description": "OK" },
+          "404": { "description": "Non trouvé" }
+        }
+      },
+      "delete": {
+        "tags": ["Students"],
+        "summary": "Supprimer un étudiant",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "integer" }
+          }
+        ],
+        "responses": {
+          "204": { "description": "Supprimé" },
+          "404": { "description": "Non trouvé" }
         }
       }
     }
   }
 }
+  
